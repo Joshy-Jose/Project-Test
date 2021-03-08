@@ -10,8 +10,8 @@ const controls = [
     { label:'Meat', type:'meat'},
 ];  
 const buildControls = (props) => (
-
-    <div className= {classes.buildControls}>
+    <div className= {classes.buildControls} style ={{backgroundColor:'#cf8f2e'}}>
+      
     <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>
      {controls.map( ctrl => (
          <BuildControl 
@@ -21,8 +21,10 @@ const buildControls = (props) => (
          removed={() => props.ingredientRemoved(ctrl.type)}
          disabled={props.disabled[ctrl.type]} />
      ))}
+
     <button className={classes.OrderButton} 
-    disabled={!props.purchasable}>Order Now</button>
+    disabled={props.purchasable}
+    onClick={props.ordered}>Order Now</button>
 
     </div>
 
